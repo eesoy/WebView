@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6E257C871FDB98A0009496F4 /* emptyFile.html in Resources */ = {isa = PBXBuildFile; fileRef = 6E257C861FDB98A0009496F4 /* emptyFile.html */; };
 		6E8217461FDBF7330043096C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E8217451FDBF7330043096C /* AppDelegate.swift */; };
 		6E8217481FDBF7330043096C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E8217471FDBF7330043096C /* ViewController.swift */; };
 		6E82174B1FDBF7330043096C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6E8217491FDBF7330043096C /* Main.storyboard */; };
@@ -15,6 +16,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		6E257C861FDB98A0009496F4 /* emptyFile.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = emptyFile.html; sourceTree = "<group>"; };
 		6E8217421FDBF7330043096C /* WebView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WebView.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6E8217451FDBF7330043096C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6E8217471FDBF7330043096C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -60,6 +62,7 @@
 				6E82174C1FDBF7330043096C /* Assets.xcassets */,
 				6E82174E1FDBF7330043096C /* LaunchScreen.storyboard */,
 				6E8217511FDBF7330043096C /* Info.plist */,
+				6E257C861FDB98A0009496F4 /* emptyFile.html */,
 			);
 			path = WebView;
 			sourceTree = "<group>";
@@ -123,6 +126,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6E257C871FDB98A0009496F4 /* emptyFile.html in Resources */,
 				6E8217501FDBF7330043096C /* LaunchScreen.storyboard in Resources */,
 				6E82174D1FDBF7330043096C /* Assets.xcassets in Resources */,
 				6E82174B1FDBF7330043096C /* Main.storyboard in Resources */,

@@ -9,14 +9,20 @@
 import UIKit
 import WebKit
 
-class ViewController: UIViewController, WKUIDelegate, UITextFieldDelegate {
+class ViewController: UIViewController, WKUIDelegate, UITextFieldDelegate, WKNavigationDelegate {
 
+    @IBOutlet weak var loading: UIActivityIndicatorView!
     @IBOutlet weak var txtUrl: UITextField!
     @IBOutlet weak var webView: WKWebView!
     override func viewDidLoad() {
         super.viewDidLoad()
         txtUrl.delegate = self
+        webView.navigationDelegate = self
         // Do any additional setup after loading the view, typically from a nib.
+        loading.isHidden = true
+        
+        //키패드 포커스
+        txtUrl.becomeFirstResponder()
     
     }
     //return key
@@ -25,6 +31,22 @@ class ViewController: UIViewController, WKUIDelegate, UITextFieldDelegate {
         webView.load(URLRequest(url: URL(string: "https://" + txtUrl.text!)!))
         return true
     }
+    
+    func webView(_ webView: WKWebView, didStartProvisionalNavigation navigation: WKNavigation!) {
+        print("start")
+        if(loading.isHidden){
+            loading.isHidden = false
+            loading.startAnimating()
+        }
+    }
+    
+    func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
+        print("end")
+        if(!loading.isHidden){
+            loading.isHidden = true
+        }
+    }
+    
 
     
     func goPageWithUrlString(urlString: String){
@@ -35,6 +57,9 @@ class ViewController: UIViewController, WKUIDelegate, UITextFieldDelegate {
         }else {
             webView.load(URLRequest(url: URL(string: "https://" + urlString)!))
         }
+        
+        //키패드 내리기
+        txtUrl.resignFirstResponder()
     }
 
     override func didReceiveMemoryWarning() {
@@ -52,12 +77,24 @@ class ViewController: UIViewController, WKUIDelegate, UITextFieldDelegate {
     }
     
     @IBAction func btnSite2(_ sender: UIButton) {
+        goPageWithUrlString(urlString: "www.google.com")
     }
     
     @IBAction func btnHtml(_ sender: UIButton) {
+        //큰 따옴표 세개 쓰면 안에 스트링값 맘대로 작성 가능
+        let htmlString = """
+                            <h1>HTML String</h1>
+                            <p>Hello Swift</p>
+                            <a href=\"http://www.apple.com\">Apple 홈페이지</a>
+                            """
+        webView.loadHTMLString(htmlString, baseURL: nil)
     }
     
+    
     @IBAction func btnFile(_ sender: UIButton) {
+        let path = Bundle.main.path(forResource: "emptyFile", ofType: "html")
+        webView.loadFileURL(URL(fileURLWithPath: path!), allowingReadAccessTo: URL(fileURLWithPath: path!))
+        //goPageWithUrlString(urlString: path!)
     }
     
     @IBAction func btnStop(_ sender: UIBarButtonItem) {

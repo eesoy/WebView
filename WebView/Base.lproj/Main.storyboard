@@ -118,6 +118,11 @@
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="n8C-lK-6Nk"/>
                                 </items>
                             </toolbar>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="HkB-7p-JQ7">
+                                <rect key="frame" x="169" y="341" width="37" height="37"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="color" red="0.50196081400000003" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -125,6 +130,7 @@
                     <toolbarItems/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="loading" destination="HkB-7p-JQ7" id="gUO-x2-W7V"/>
                         <outlet property="txtUrl" destination="Gr1-dc-BYA" id="8BA-jf-iaM"/>
                         <outlet property="webView" destination="WJU-oE-Eru" id="gs3-bc-2Ss"/>
                     </connections>
